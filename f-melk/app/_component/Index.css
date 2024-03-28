@@ -1,0 +1,17 @@
+*{
+background-color: #75b1cc;
+direction: rtl;
+font-size: 16px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.Index_tt{
+    width: 480px;
+    height: 480px;
+    border: 2px solid red;
+    display: flex;
+    margin: auto;
+
+
+}
