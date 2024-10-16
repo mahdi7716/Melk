@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_price_prices",
+  "info": {
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Sale_amount": {
+      "type": "string",
+      "required": true,
+      "default": "مبلغ فروش"
+    },
+    "buy_amount": {
+      "type": "string",
+      "default": "مبلغ خرید ",
+      "required": true
+    }
+  }
+}

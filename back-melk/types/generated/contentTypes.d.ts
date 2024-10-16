@@ -1,5 +1,153 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ApiAssigmentAssigment extends Struct.CollectionTypeSchema {
+  collectionName: 'assigments';
+  info: {
+    singularName: 'assigment';
+    pluralName: 'assigments';
+    displayName: 'Assigment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Assigment_Value: Schema.Attribute.Enumeration<
+      [
+        '\u0646\u0648\u0639 \u0648\u0627\u06AF\u0630\u0627\u0631\u06CC ',
+        '\u0641\u0631\u0648\u0634',
+        '\u0631\u0647\u0646 \u0648 \u0627\u062C\u0627\u0631\u0647',
+        '\u067E\u06CC\u0634 \u0641\u0631\u0648\u0634 ',
+        '\u062A\u0647\u0627\u062A\u0631 \u0648 \u0645\u0639\u0627\u0648\u0636\u0647 ',
+      ]
+    >;
+    Estate: Schema.Attribute.Enumeration<
+      [
+        '\u0622\u067E\u0627\u0631\u062A\u0645\u0627\u0646',
+        '\u0632\u0645\u06CC\u0646 - \u06A9\u0644\u0646\u06AF\u06CC',
+        '\u0648\u06CC\u0644\u0627\u06CC\u06CC',
+        '\u062F\u0641\u062A\u0631 \u06A9\u0627\u0631 ',
+        '\u0645\u063A\u0627\u0632\u0647 ',
+        '\u0627\u0646\u0628\u0627\u0631\u06CC ',
+        '\u0647\u062A\u0644 - \u0627\u0642\u0627\u0645\u062A\u06CC',
+      ]
+    >;
+    Seller: Schema.Attribute.Component<'person.person', false>;
+    Amount: Schema.Attribute.Component<'price.price', false>;
+    Meterage: Schema.Attribute.String & Schema.Attribute.Required;
+    Sleep: Schema.Attribute.Enumeration<
+      [
+        '\u0628\u062F\u0648\u0646 \u062E\u0648\u0627\u0628 ',
+        '\u06CC\u06A9 ',
+        '\u062F\u0648 ',
+        '\u0633\u0647  ',
+        '\u0686\u0647\u0627\u0631 ',
+        '\u067E\u0646\u062C \u06CC\u0627 \u0628\u06CC\u0634\u062A\u0631',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Floor_Unit: Schema.Attribute.Enumeration<
+      [
+        '\u0647\u0645\u06A9\u0641',
+        '\u0627\u0648\u0644',
+        '\u062F\u0648\u0645',
+        '\u0633\u0648\u0645',
+        '\u0686\u0647\u0627\u0631\u0645',
+        '\u067E\u0646\u062C\u0645',
+        '\u0634\u0634\u0645',
+        '\u0647\u0641\u062A\u0645',
+        '\u0647\u0634\u062A\u0645',
+        '\u0646\u0647\u0645',
+        '\u062F\u0647\u0645 \u0648 \u0628\u06CC\u0634\u062A\u0631',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Age_Buillding: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    Number_Unit: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    Number_Floor: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    Document: Schema.Attribute.Enumeration<
+      [
+        '\u062A\u06A9 \u0628\u0631\u06AF ',
+        '\u0642\u0648\u0644\u0646\u0627\u0645\u0647 \u0627\u06CC ',
+        '\u062A\u06A9 \u0628\u0631\u06AF \u0622\u0633\u062A\u0627\u0646\u0647',
+        '\u062A\u06A9 \u0628\u0631\u06AF \u0627\u0648\u0642\u0627\u0641',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Direction: Schema.Attribute.Enumeration<
+      [
+        '\u0634\u0645\u0627\u0644\u06CC ',
+        '\u062C\u0646\u0648\u0628\u06CC ',
+        '\u063A\u0631\u0628\u06CC ',
+        '\u0634\u0631\u0642\u06CC',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Date_Register: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    Decoration: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u06A9\u0627\u063A\u0630 \u062F\u06CC\u0648\u0627\u0631\u06CC ',
+          '\u0646\u0642\u0627\u0634\u06CC ',
+          '\u06AF\u0686',
+          '\u0644\u0648\u0633\u062A\u0631',
+          '\u0646\u0648\u0631 \u0645\u062E\u0641\u06CC',
+          '\u067E\u0631\u062F\u0647',
+          '\u0633\u0642\u0641 \u06A9\u0627\u0630\u0628',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    Facilities: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u0633\u0648\u0646\u0627',
+          '\u062C\u06A9\u0648\u0632\u06CC',
+          '\u0627\u0633\u062A\u062E\u0631',
+          '\u0631\u0648\u0641 \u06AF\u0627\u0631\u062F\u0646',
+          '\u062D\u06CC\u0627\u0637',
+          '\u0622\u0633\u0627\u0646\u0633\u0648\u0631',
+          '\u0647\u0648\u062F ',
+          '\u062F\u0648\u0631\u0628\u06CC\u0646 \u0645\u062F\u0627\u0631\u0628\u0633\u062A\u0647',
+          '\u062A\u0631\u0627\u0633',
+          '\u062A\u0648\u0627\u0644\u062A \u0641\u0631\u0646\u06AF\u06CC',
+          '\u0622\u06CC\u0641\u0648\u0646 \u062A\u0635\u0648\u06CC\u0631\u06CC',
+          '\u06AF\u0627\u0632 \u0635\u0641\u062D\u0647 \u0627\u06CC',
+          '\u06A9\u0645\u062F \u062F\u06CC\u0648\u0627\u0631\u06CC ',
+          '\u067E\u0627\u0633\u06CC\u0648',
+          '\u0632\u06CC\u0631\u0632\u0645\u06CC\u0646',
+          '\u0627\u0646\u0628\u0627\u0631\u06CC',
+          '\u067E\u0627\u0631\u06A9\u06CC\u0646\u06AF',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    Address: Schema.Attribute.Text & Schema.Attribute.Required;
+    Pictures: Schema.Attribute.Media<'images' | 'files', true>;
+    Video: Schema.Attribute.Media<'files' | 'videos', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::assigment.assigment'
+    >;
+  };
+}
+
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -850,6 +998,7 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
+      'api::assigment.assigment': ApiAssigmentAssigment;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;

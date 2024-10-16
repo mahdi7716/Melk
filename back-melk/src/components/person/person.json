@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_person_people",
+  "info": {
+    "displayName": "Person"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Family": {
+      "type": "string",
+      "required": true
+    },
+    "Mobile": {
+      "type": "string",
+      "required": true
+    },
+    "Tel": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
