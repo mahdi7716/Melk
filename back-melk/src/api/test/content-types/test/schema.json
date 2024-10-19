@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "list": {
+      "type": "string",
+      "required": true
+    },
+    "pass": {
+      "type": "password",
+      "required": true
+    },
+    "assigment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::assigment.assigment",
+      "inversedBy": "tests"
+    }
+  }
+}

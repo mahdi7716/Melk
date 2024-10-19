@@ -133,6 +133,7 @@ export interface ApiAssigmentAssigment extends Struct.CollectionTypeSchema {
     Address: Schema.Attribute.Text & Schema.Attribute.Required;
     Pictures: Schema.Attribute.Media<'images' | 'files', true>;
     Video: Schema.Attribute.Media<'files' | 'videos', true>;
+    tests: Schema.Attribute.Relation<'oneToMany', 'api::test.test'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -145,6 +146,35 @@ export interface ApiAssigmentAssigment extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::assigment.assigment'
     >;
+  };
+}
+
+export interface ApiTestTest extends Struct.CollectionTypeSchema {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    list: Schema.Attribute.String & Schema.Attribute.Required;
+    pass: Schema.Attribute.Password & Schema.Attribute.Required;
+    assigment: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::assigment.assigment'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test.test'>;
   };
 }
 
@@ -999,6 +1029,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
       'api::assigment.assigment': ApiAssigmentAssigment;
+      'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
