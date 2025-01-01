@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_multi_multi_s",
+  "info": {
+    "displayName": "Multi "
+  },
+  "options": {},
+  "attributes": {
+    "Mu_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Mu_Family": {
+      "type": "string",
+      "required": true
+    },
+    "Mu_Moblie": {
+      "type": "string",
+      "required": true
+    },
+    "Mu_Tel": {
+      "type": "string",
+      "required": true
+    },
+    "Mu_Description": {
+      "type": "richtext"
+    },
+    "Mu_Title": {
+      "type": "string",
+      "required": true
+    },
+    "Mu_Pic": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Mu_Video": {
+      "allowedTypes": [
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

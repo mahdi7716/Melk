@@ -1,183 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface ApiAssigmentAssigment extends Struct.CollectionTypeSchema {
-  collectionName: 'assigments';
-  info: {
-    singularName: 'assigment';
-    pluralName: 'assigments';
-    displayName: 'Assigment';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Assigment_Value: Schema.Attribute.Enumeration<
-      [
-        '\u0646\u0648\u0639 \u0648\u0627\u06AF\u0630\u0627\u0631\u06CC ',
-        '\u0641\u0631\u0648\u0634',
-        '\u0631\u0647\u0646 \u0648 \u0627\u062C\u0627\u0631\u0647',
-        '\u067E\u06CC\u0634 \u0641\u0631\u0648\u0634 ',
-        '\u062A\u0647\u0627\u062A\u0631 \u0648 \u0645\u0639\u0627\u0648\u0636\u0647 ',
-      ]
-    >;
-    Estate: Schema.Attribute.Enumeration<
-      [
-        '\u0622\u067E\u0627\u0631\u062A\u0645\u0627\u0646',
-        '\u0632\u0645\u06CC\u0646 - \u06A9\u0644\u0646\u06AF\u06CC',
-        '\u0648\u06CC\u0644\u0627\u06CC\u06CC',
-        '\u062F\u0641\u062A\u0631 \u06A9\u0627\u0631 ',
-        '\u0645\u063A\u0627\u0632\u0647 ',
-        '\u0627\u0646\u0628\u0627\u0631\u06CC ',
-        '\u0647\u062A\u0644 - \u0627\u0642\u0627\u0645\u062A\u06CC',
-      ]
-    >;
-    Seller: Schema.Attribute.Component<'person.person', false>;
-    Amount: Schema.Attribute.Component<'price.price', false>;
-    Meterage: Schema.Attribute.String & Schema.Attribute.Required;
-    Sleep: Schema.Attribute.Enumeration<
-      [
-        '\u0628\u062F\u0648\u0646 \u062E\u0648\u0627\u0628 ',
-        '\u06CC\u06A9 ',
-        '\u062F\u0648 ',
-        '\u0633\u0647  ',
-        '\u0686\u0647\u0627\u0631 ',
-        '\u067E\u0646\u062C \u06CC\u0627 \u0628\u06CC\u0634\u062A\u0631',
-      ]
-    > &
-      Schema.Attribute.Required;
-    Floor_Unit: Schema.Attribute.Enumeration<
-      [
-        '\u0647\u0645\u06A9\u0641',
-        '\u0627\u0648\u0644',
-        '\u062F\u0648\u0645',
-        '\u0633\u0648\u0645',
-        '\u0686\u0647\u0627\u0631\u0645',
-        '\u067E\u0646\u062C\u0645',
-        '\u0634\u0634\u0645',
-        '\u0647\u0641\u062A\u0645',
-        '\u0647\u0634\u062A\u0645',
-        '\u0646\u0647\u0645',
-        '\u062F\u0647\u0645 \u0648 \u0628\u06CC\u0634\u062A\u0631',
-      ]
-    > &
-      Schema.Attribute.Required;
-    Age_Buillding: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0>;
-    Number_Unit: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0>;
-    Number_Floor: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0>;
-    Document: Schema.Attribute.Enumeration<
-      [
-        '\u062A\u06A9 \u0628\u0631\u06AF ',
-        '\u0642\u0648\u0644\u0646\u0627\u0645\u0647 \u0627\u06CC ',
-        '\u062A\u06A9 \u0628\u0631\u06AF \u0622\u0633\u062A\u0627\u0646\u0647',
-        '\u062A\u06A9 \u0628\u0631\u06AF \u0627\u0648\u0642\u0627\u0641',
-      ]
-    > &
-      Schema.Attribute.Required;
-    Direction: Schema.Attribute.Enumeration<
-      [
-        '\u0634\u0645\u0627\u0644\u06CC ',
-        '\u062C\u0646\u0648\u0628\u06CC ',
-        '\u063A\u0631\u0628\u06CC ',
-        '\u0634\u0631\u0642\u06CC',
-      ]
-    > &
-      Schema.Attribute.Required;
-    Date_Register: Schema.Attribute.DateTime & Schema.Attribute.Required;
-    Decoration: Schema.Attribute.JSON &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          '\u06A9\u0627\u063A\u0630 \u062F\u06CC\u0648\u0627\u0631\u06CC ',
-          '\u0646\u0642\u0627\u0634\u06CC ',
-          '\u06AF\u0686',
-          '\u0644\u0648\u0633\u062A\u0631',
-          '\u0646\u0648\u0631 \u0645\u062E\u0641\u06CC',
-          '\u067E\u0631\u062F\u0647',
-          '\u0633\u0642\u0641 \u06A9\u0627\u0630\u0628',
-        ]
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
-    Facilities: Schema.Attribute.JSON &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          '\u0633\u0648\u0646\u0627',
-          '\u062C\u06A9\u0648\u0632\u06CC',
-          '\u0627\u0633\u062A\u062E\u0631',
-          '\u0631\u0648\u0641 \u06AF\u0627\u0631\u062F\u0646',
-          '\u062D\u06CC\u0627\u0637',
-          '\u0622\u0633\u0627\u0646\u0633\u0648\u0631',
-          '\u0647\u0648\u062F ',
-          '\u062F\u0648\u0631\u0628\u06CC\u0646 \u0645\u062F\u0627\u0631\u0628\u0633\u062A\u0647',
-          '\u062A\u0631\u0627\u0633',
-          '\u062A\u0648\u0627\u0644\u062A \u0641\u0631\u0646\u06AF\u06CC',
-          '\u0622\u06CC\u0641\u0648\u0646 \u062A\u0635\u0648\u06CC\u0631\u06CC',
-          '\u06AF\u0627\u0632 \u0635\u0641\u062D\u0647 \u0627\u06CC',
-          '\u06A9\u0645\u062F \u062F\u06CC\u0648\u0627\u0631\u06CC ',
-          '\u067E\u0627\u0633\u06CC\u0648',
-          '\u0632\u06CC\u0631\u0632\u0645\u06CC\u0646',
-          '\u0627\u0646\u0628\u0627\u0631\u06CC',
-          '\u067E\u0627\u0631\u06A9\u06CC\u0646\u06AF',
-        ]
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
-    Address: Schema.Attribute.Text & Schema.Attribute.Required;
-    Pictures: Schema.Attribute.Media<'images' | 'files', true>;
-    Video: Schema.Attribute.Media<'files' | 'videos', true>;
-    tests: Schema.Attribute.Relation<'oneToMany', 'api::test.test'>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::assigment.assigment'
-    >;
-  };
-}
-
-export interface ApiTestTest extends Struct.CollectionTypeSchema {
-  collectionName: 'tests';
-  info: {
-    singularName: 'test';
-    pluralName: 'tests';
-    displayName: 'test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    list: Schema.Attribute.String & Schema.Attribute.Required;
-    pass: Schema.Attribute.Password & Schema.Attribute.Required;
-    assigment: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::assigment.assigment'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test.test'>;
-  };
-}
-
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -663,6 +485,286 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiRealEstateRealEstate extends Struct.CollectionTypeSchema {
+  collectionName: 'real_estates';
+  info: {
+    singularName: 'real-estate';
+    pluralName: 'real-estates';
+    displayName: 'Real Estate';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Rs_Property_Area: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    Rs_Property_Type: Schema.Attribute.Enumeration<
+      [
+        '\u0622\u067E\u0627\u0631\u062A\u0645\u0627\u0646 ',
+        '\u0648\u06CC\u0644\u0627\u0626\u06CC ',
+        '\u0632\u0645\u06CC\u0646 ',
+        '\u0633\u0648\u0626\u06CC\u062A ',
+        '\u062F\u0641\u062A\u0631 \u06A9\u0627\u0631',
+        '\u062A\u062C\u0627\u0631\u06CC',
+        '\u0647\u062A\u0644 ',
+        '\u0627\u0646\u0628\u0627\u0631',
+        '\u0628\u0627\u063A',
+        '\u0647\u0645\u0647 \u0645\u0648\u0627\u0631\u062F ',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Rs_Transaction_Type: Schema.Attribute.Enumeration<
+      [
+        '\u062E\u0631\u06CC\u062F \u0648 \u0641\u0631\u0648\u0634',
+        '\u0631\u0647\u0646 \u0648 \u0627\u062C\u0627\u0631\u0647 ',
+        '\u067E\u06CC\u0634 \u0641\u0631\u0648\u0634 ',
+        '\u0645\u0634\u0627\u0631\u06A9\u062A \u062F\u0631 \u0633\u0627\u062E\u062A ',
+        '\u062A\u0647\u0627\u062A\u0631 - \u0645\u0639\u0627\u0648\u0636\u0647 ',
+      ]
+    >;
+    Rs_Document: Schema.Attribute.Enumeration<
+      [
+        '\u0634\u0634\u062F\u0627\u0646\u06AF ',
+        '\u0633\u0647 \u062F\u0627\u0646\u06AF',
+        '\u0648\u06A9\u0627\u0644\u062A\u06CC ',
+        '\u0642\u0648\u0644\u0646\u0627\u0645\u0647 \u0627\u06CC ',
+        '\u062F\u0631 \u062F\u0633\u062A \u0627\u0642\u062F\u0627\u0645 ',
+        '\u0646\u0627 \u0645\u0634\u062E\u0635 ',
+      ]
+    >;
+    Rs_Below: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    Rs_Number_Units: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Number_Floors: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Floor: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Rooms: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Year_Build: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Location: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Orientation: Schema.Attribute.Enumeration<
+      [
+        '\u0634\u0645\u0627\u0644\u06CC ',
+        '\u062C\u0646\u0648\u0628\u06CC ',
+        '\u063A\u0631\u0628\u06CC ',
+        '\u0634\u0631\u0642\u06CC ',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Rs_Parking: Schema.Attribute.Enumeration<
+      ['\u062F\u0627\u0631\u062F ', '\u0646\u062F\u0627\u0631\u062F ']
+    >;
+    Rs_Elevator: Schema.Attribute.Enumeration<
+      ['\u062F\u0627\u0631\u062F ', '\u0646\u062F\u0627\u0631\u062F ']
+    > &
+      Schema.Attribute.Required;
+    Rs_Warehouse: Schema.Attribute.Enumeration<
+      ['\u062F\u0627\u0631\u062F ', '\u0646\u062F\u0627\u0631\u062F ']
+    > &
+      Schema.Attribute.Required;
+    Rs_Flooring: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Wall_Cover: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Heating_Cooling: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u0628\u062E\u0627\u0631\u06CC ',
+          '\u0641\u0646 \u06A9\u0648\u0626\u0644 ',
+          '\u06AF\u0631\u0645\u0627\u0634 \u0627\u0632 \u06A9\u0641 ',
+          '\u0634\u0648\u0641\u0627\u0698',
+          '\u06A9\u0648\u0644\u0631 \u0622\u0628\u06CC ',
+          '\u067E\u06A9\u06CC\u062C ',
+          '\u06A9\u0648\u0644\u0631 \u06AF\u0627\u0632\u06CC ',
+          '\u0633\u0631\u0645\u0627\u06CC\u0634 \u0627\u0632 \u06A9\u0641 ',
+          '\u0686\u06CC\u0644\u0631 ',
+          '\u0633\u0627\u06CC\u0631 ',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    Rs_Decorations: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u0644\u0648\u0633\u062A\u0631 ',
+          '\u0633\u0642\u0641 \u06A9\u0627\u0630\u0628',
+          '\u067E\u0631\u062F\u0647 ',
+          '\u0646\u0648\u0631 \u0645\u062E\u0641\u06CC ',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    Rs_Cabinet: Schema.Attribute.Enumeration<
+      [
+        '\u0627\u0645 \u062F\u06CC \u0627\u0641 ',
+        '\u0641\u0644\u0632\u06CC ',
+        '\u0647\u0627\u06CC\u06AF\u0644\u0627\u0633',
+        '\u0686\u0648\u0628 ',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Rs_Facilities: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u0633\u0648\u0646\u0627 ',
+          '\u062C\u06A9\u0648\u0632\u06CC ',
+          '\u06A9\u0645\u062F \u062F\u06CC\u0648\u0627\u0631\u06CC ',
+          '\u0647\u0648\u062F ',
+          '\u06AF\u0627\u0632 \u0635\u0641\u062D\u0647 \u0627\u06CC ',
+          '\u0627\u0633\u062A\u062E\u0631 ',
+          '\u067E\u0627\u0633\u06CC\u0648 ',
+          '\u062F\u0648\u0631\u0628\u06CC\u0646 \u0645\u062F\u0627\u0631 \u0628\u0633\u062A\u0647 ',
+          '\u067E\u0627\u0631\u06A9\u06CC\u0646\u06AF \u0628\u062F\u0648\u0646 \u0645\u0632\u0627\u062D\u0645 ',
+          '\u067E\u0627\u0631\u06A9\u06CC\u0646\u06AF \u0645\u0647\u0645\u0627\u0646',
+          '\u0632\u06CC\u0631\u0632\u0645\u06CC\u0646 ',
+          '\u062D\u06CC\u0627\u0637 ',
+          '\u062A\u0631\u0627\u0633 ',
+          '\u062A\u0648\u0627\u0644\u062A \u0641\u0631\u0646\u06AF\u06CC ',
+          '\u0631\u0648\u0641 \u06AF\u0627\u0631\u062F\u0646 ',
+          '\u0622\u06CC\u0641\u0648\u0646 \u062A\u0635\u0648\u06CC ',
+          '\u0648\u0627\u0644 \u0647\u0646\u06AF ',
+          '\u0633\u06CC\u0633\u062A\u0645 Bms ',
+          '\u062E\u0637 \u062A\u0644\u0641\u0646 ',
+          '',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    Rs_Across: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Width: Schema.Attribute.String & Schema.Attribute.Required;
+    RS_Length: Schema.Attribute.String & Schema.Attribute.Required;
+    rs_owners: Schema.Attribute.Relation<'oneToMany', 'api::rs-owner.rs-owner'>;
+    Rs_City: Schema.Attribute.Enumeration<
+      [
+        '\u0645\u0634\u0647\u062F ',
+        '\u0642\u0648\u0686\u0627\u0646 ',
+        '\u0646\u06CC\u0634\u0627\u0628\u0648\u0631 ',
+        '\u0633\u0628\u0632\u0648\u0627\u0631 ',
+        '\u062A\u0631\u0628\u062A \u062D\u06CC\u062F\u0631\u06CC\u0647 ',
+        '\u0686\u0646\u0627\u0631\u0627\u0646 ',
+        '\u062F\u0631\u06AF\u0632 ',
+        '\u062A\u0631\u0628\u062A \u062C\u0627\u0645 ',
+        '\u06A9\u0627\u0634\u0645\u0631 ',
+        '\u0633\u0631\u062E\u0633 ',
+        '\u06A9\u0644\u0627\u062A ',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Rs_Local: Schema.Attribute.Enumeration<
+      [
+        '\u0645\u0637\u0647\u0631\u06CC \u0634\u0645\u0627\u0644\u06CC ',
+        '\u0645\u0637\u0647\u0631\u06CC \u062C\u0646\u0648\u0628\u06CC ',
+        '\u0645\u0639\u0644\u0645 ',
+        '\u0627\u062D\u0645\u062F \u0627\u0628\u0627\u062F ',
+        '\u0634\u0631\u06CC\u0639\u062A\u06CC ',
+        '\u0634\u0647\u062F\u0627 ',
+        '\u0627\u0645\u0627\u0645 \u062E\u0645\u06CC\u0646\u06CC ',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Rs_Multi: Schema.Attribute.DynamicZone<['multi.multi']>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::real-estate.real-estate'
+    >;
+  };
+}
+
+export interface ApiRsOwnerRsOwner extends Struct.CollectionTypeSchema {
+  collectionName: 'rs_owners';
+  info: {
+    singularName: 'rs-owner';
+    pluralName: 'rs-owners';
+    displayName: 'Rs_Owner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Owner: Schema.Attribute.Component<'multi.multi', false>;
+    real_estate: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::real-estate.real-estate'
+    >;
+    rs_rent: Schema.Attribute.Relation<'oneToOne', 'api::rs-rent.rs-rent'>;
+    rs_sell: Schema.Attribute.Relation<'oneToOne', 'api::rs-sell.rs-sell'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-owner.rs-owner'
+    >;
+  };
+}
+
+export interface ApiRsRentRsRent extends Struct.CollectionTypeSchema {
+  collectionName: 'rs_rents';
+  info: {
+    singularName: 'rs-rent';
+    pluralName: 'rs-rents';
+    displayName: 'Rs_Rent';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Rs_Rent_Rent: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_rent_Mortgage: Schema.Attribute.String & Schema.Attribute.Required;
+    rs_owner: Schema.Attribute.Relation<'oneToOne', 'api::rs-owner.rs-owner'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-rent.rs-rent'
+    >;
+  };
+}
+
+export interface ApiRsSellRsSell extends Struct.CollectionTypeSchema {
+  collectionName: 'rs_sells';
+  info: {
+    singularName: 'rs-sell';
+    pluralName: 'rs-sells';
+    displayName: 'Rs_Sell';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Rs_Sell_Price: Schema.Attribute.String & Schema.Attribute.Required;
+    Rs_Sell_PriceMeter: Schema.Attribute.String & Schema.Attribute.Required;
+    rs_owner: Schema.Attribute.Relation<'oneToOne', 'api::rs-owner.rs-owner'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-sell.rs-sell'
+    >;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -1028,8 +1130,6 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
-      'api::assigment.assigment': ApiAssigmentAssigment;
-      'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
@@ -1040,6 +1140,10 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::real-estate.real-estate': ApiRealEstateRealEstate;
+      'api::rs-owner.rs-owner': ApiRsOwnerRsOwner;
+      'api::rs-rent.rs-rent': ApiRsRentRsRent;
+      'api::rs-sell.rs-sell': ApiRsSellRsSell;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

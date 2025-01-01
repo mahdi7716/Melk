@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rs_rents",
+  "info": {
+    "singularName": "rs-rent",
+    "pluralName": "rs-rents",
+    "displayName": "Rs_Rent"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Rs_Rent_Rent": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_rent_Mortgage": {
+      "type": "string",
+      "required": true
+    },
+    "rs_owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rs-owner.rs-owner",
+      "mappedBy": "rs_rent"
+    }
+  }
+}

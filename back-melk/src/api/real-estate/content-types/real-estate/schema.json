@@ -1,0 +1,247 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_estates",
+  "info": {
+    "singularName": "real-estate",
+    "pluralName": "real-estates",
+    "displayName": "Real Estate",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Rs_Property_Area": {
+      "required": true,
+      "type": "decimal"
+    },
+    "Rs_Property_Type": {
+      "type": "enumeration",
+      "enum": [
+        "آپارتمان ",
+        "ویلائی ",
+        "زمین ",
+        "سوئیت ",
+        "دفتر کار",
+        "تجاری",
+        "هتل ",
+        "انبار",
+        "باغ",
+        "همه موارد "
+      ],
+      "required": true
+    },
+    "Rs_Transaction_Type": {
+      "type": "enumeration",
+      "enum": [
+        "خرید و فروش",
+        "رهن و اجاره ",
+        "پیش فروش ",
+        "مشارکت در ساخت ",
+        "تهاتر - معاوضه "
+      ]
+    },
+    "Rs_Document": {
+      "type": "enumeration",
+      "enum": [
+        "ششدانگ ",
+        "سه دانگ",
+        "وکالتی ",
+        "قولنامه ای ",
+        "در دست اقدام ",
+        "نا مشخص "
+      ]
+    },
+    "Rs_Below": {
+      "type": "decimal",
+      "required": true
+    },
+    "Rs_Number_Units": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Number_Floors": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Floor": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Rooms": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Year_Build": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Location": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Orientation": {
+      "type": "enumeration",
+      "enum": [
+        "شمالی ",
+        "جنوبی ",
+        "غربی ",
+        "شرقی "
+      ],
+      "required": true
+    },
+    "Rs_Parking": {
+      "type": "enumeration",
+      "enum": [
+        "دارد ",
+        "ندارد "
+      ]
+    },
+    "Rs_Elevator": {
+      "type": "enumeration",
+      "enum": [
+        "دارد ",
+        "ندارد "
+      ],
+      "required": true
+    },
+    "Rs_Warehouse": {
+      "type": "enumeration",
+      "enum": [
+        "دارد ",
+        "ندارد "
+      ],
+      "required": true
+    },
+    "Rs_Flooring": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Wall_Cover": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Heating_Cooling": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "بخاری ",
+        "فن کوئل ",
+        "گرماش از کف ",
+        "شوفاژ",
+        "کولر آبی ",
+        "پکیج ",
+        "کولر گازی ",
+        "سرمایش از کف ",
+        "چیلر ",
+        "سایر "
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "Rs_Decorations": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "لوستر ",
+        "سقف کاذب",
+        "پرده ",
+        "نور مخفی "
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "Rs_Cabinet": {
+      "type": "enumeration",
+      "enum": [
+        "ام دی اف ",
+        "فلزی ",
+        "هایگلاس",
+        "چوب "
+      ],
+      "required": true
+    },
+    "Rs_Facilities": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "سونا ",
+        "جکوزی ",
+        "کمد دیواری ",
+        "هود ",
+        "گاز صفحه ای ",
+        "استخر ",
+        "پاسیو ",
+        "دوربین مدار بسته ",
+        "پارکینگ بدون مزاحم ",
+        "پارکینگ مهمان",
+        "زیرزمین ",
+        "حیاط ",
+        "تراس ",
+        "توالت فرنگی ",
+        "روف گاردن ",
+        "آیفون تصوی ",
+        "وال هنگ ",
+        "سیستم Bms ",
+        "خط تلفن ",
+        ""
+      ],
+      "required": false,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "Rs_Across": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Width": {
+      "type": "string",
+      "required": true
+    },
+    "RS_Length": {
+      "type": "string",
+      "required": true
+    },
+    "rs_owners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rs-owner.rs-owner",
+      "mappedBy": "real_estate"
+    },
+    "Rs_City": {
+      "type": "enumeration",
+      "enum": [
+        "مشهد ",
+        "قوچان ",
+        "نیشابور ",
+        "سبزوار ",
+        "تربت حیدریه ",
+        "چناران ",
+        "درگز ",
+        "تربت جام ",
+        "کاشمر ",
+        "سرخس ",
+        "کلات "
+      ],
+      "required": true
+    },
+    "Rs_Local": {
+      "type": "enumeration",
+      "enum": [
+        "مطهری شمالی ",
+        "مطهری جنوبی ",
+        "معلم ",
+        "احمد اباد ",
+        "شریعتی ",
+        "شهدا ",
+        "امام خمینی "
+      ],
+      "required": true
+    },
+    "Rs_Multi": {
+      "type": "dynamiczone",
+      "components": [
+        "multi.multi"
+      ],
+      "required": false
+    }
+  }
+}

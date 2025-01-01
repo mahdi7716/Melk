@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rs_sells",
+  "info": {
+    "singularName": "rs-sell",
+    "pluralName": "rs-sells",
+    "displayName": "Rs_Sell"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Rs_Sell_Price": {
+      "type": "string",
+      "required": true
+    },
+    "Rs_Sell_PriceMeter": {
+      "type": "string",
+      "required": true
+    },
+    "rs_owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rs-owner.rs-owner",
+      "mappedBy": "rs_sell"
+    }
+  }
+}

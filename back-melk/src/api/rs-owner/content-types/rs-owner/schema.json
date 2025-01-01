@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rs_owners",
+  "info": {
+    "singularName": "rs-owner",
+    "pluralName": "rs-owners",
+    "displayName": "Rs_Owner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Owner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "multi.multi"
+    },
+    "real_estate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::real-estate.real-estate",
+      "inversedBy": "rs_owners"
+    },
+    "rs_rent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rs-rent.rs-rent",
+      "inversedBy": "rs_owner"
+    },
+    "rs_sell": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rs-sell.rs-sell",
+      "inversedBy": "rs_owner"
+    }
+  }
+}
