@@ -1,70 +1,43 @@
 import React from 'react'
 import Wrapper from './Wrapper'
 import Create from './Create'
+import Image from 'next/image'
+import { AiOutlineLogin } from 'react-icons/ai'
 
 const Header = () => {
   return (
-    
-        
-     
-          <div  className=" w-full h-full mt-5   ">
-
-
-
-<div class="bg-gray-100">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-      <h2 class="text-2xl font-bold text-gray-900">Collections</h2>
-
-      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-        <div class="group relative">
-          <img src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-01.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"/>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Desk and Office
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
-        </div>
-        <div class="group relative">
-          <img src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-02.jpg" alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant." class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"/>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Self-Improvement
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900">Journals and note-taking</p>
-        </div>
-        <div class="group relative">
-          <img src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"/>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Travel
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900">Daily commute essentials</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-            {/* <div className="w-10/12 h-16 flex justify-center m-auto bg-slate-800 text-amber-400 p-4" >بالای صفحه </div>
-            <div className='w-10/12 h-96 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0  '>
-            <div className='row-span-3 w-96 h-full   bg-red-900  '></div>
-            <div className='group relative'>
-            <div className='row-span-1  bg-red-500  '></div>
+    <div className='h-full w-full bg-cyan-100 '>
+      <footer className=' relative container mx-auto p-6 '>
+        <div className=' flex items-center justify-between  '>
+          <div className=' flex items-center space-x-22   '>
+            <Image src="/images/Logo.svg" width={60} height={60} className="" />
+            <div className='hidden space-x-10 font-bold lg:flex'>
+              <a href="#" className='text-gray-600 hover:text-amber-300'>صفحه اصلی </a>
+              <a href="#" className='text-gray-600 hover:text-amber-300'> خرید ملک  </a>
+              <a href="#" className='text-gray-600 hover:text-amber-300'>فروش ملک </a>
+              <a href="#" className='text-gray-600 hover:text-amber-300'>درباره ما </a>
+              <a href="#" className='text-gray-600 hover:text-amber-300'>تماس با ما   </a>
             </div>
-            <div className='row-span-1  bg-red-700  '></div>
-            <div className='row-span-1  bg-red-800  '></div>
-            <div className='row-span-1  bg-red-600  '></div>
-            
-            </div> */}
           </div>
+          <div className=' hidden items-center space-x-6 font-bold text-gray-950 lg:flex'>
+            <div className='hover:text-gray-700 '>Login</div>
+            <a href="" className='px-8 mx-6 py-3 font-bold text-white bg-cyan-500 rounded-full hover:opacity-70 '>Sign Up</a>
 
-   
+          </div>
+          <div>
+
+
+
+
+          </div>
+        </div>
+
+      </footer>
+
+
+    </div>
+
+
   )
 }
 
