@@ -53,10 +53,14 @@ input::placeholder{
 .Seller_Content{
   width: 80%;
   height: 60%;
-  background-color: rgb(225, 236, 233);
+  background-color: rgb(241, 239, 243);
   color: blueviolet;
   margin: auto;
   margin-top: 30px;
+  border:2px solid rgb(181, 181, 194) ;
+  border-radius: 10px;
+  filter:blur(0.05px)
+
 
 }
 .Seller_Text {
@@ -64,10 +68,7 @@ input::placeholder{
   margin: auto;
 
 }
-.Border_B{
-  
-  border-bottom: 2px solid red ;
-}
+
 
 .Input_Text{
 width: 230px;
@@ -87,4 +88,9 @@ input::placeholder{
   color: rgb(85, 85, 79);
   padding: 5px;
 
+}
+
+.form-trans{
+  animation-duration: 3S;
+  
 }
